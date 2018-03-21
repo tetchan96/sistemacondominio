@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @condominio.saldo %>
+</p>
+
+<p>
+  <strong>Fundo reserva:</strong>
+  <%= @condominio.fundo_reserva %>
+</p>
+
+<%= link_to 'Edit', edit_condominio_path(@condominio) %> |
+<%= link_to 'Back', condominios_path %>

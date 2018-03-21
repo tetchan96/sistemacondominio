@@ -1,0 +1,87 @@
+<%= form_for(morador) do |f| %>
+  <% if morador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(morador.errors.count, "error") %> prohibited this morador from being saved:</h2>
+
+      <ul>
+      <% morador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rg %>
+    <%= f.text_field :rg %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpf %>
+    <%= f.text_field :cpf %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tel_residencial %>
+    <%= f.text_field :tel_residencial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tel_celular %>
+    <%= f.text_field :tel_celular %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tel_comercial %>
+    <%= f.text_field :tel_comercial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ramal %>
+    <%= f.text_field :ramal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parentesco %>
+    <%= f.text_field :parentesco %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo %>
+    <%= f.text_field :tipo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ativo %>
+    <%= f.check_box :ativo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_inclusao %>
+    <%= f.datetime_select :data_inclusao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_alteracao %>
+    <%= f.datetime_select :data_alteracao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :apartamento %>
+    <%= f.text_field :apartamento %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

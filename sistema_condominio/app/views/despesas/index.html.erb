@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Despesas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Valor</th>
+      <th>Natureza</th>
+      <th>Ativo</th>
+      <th>Data inclusao</th>
+      <th>Data alteracao</th>
+      <th>Descricao despesa receita</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @despesas.each do |despesa| %>
+      <tr>
+        <td><%= despesa.data %></td>
+        <td><%= despesa.valor %></td>
+        <td><%= despesa.natureza %></td>
+        <td><%= despesa.ativo %></td>
+        <td><%= despesa.data_inclusao %></td>
+        <td><%= despesa.data_alteracao %></td>
+        <td><%= despesa.descricao_despesa_receita %></td>
+        <td><%= link_to 'Show', despesa %></td>
+        <td><%= link_to 'Edit', edit_despesa_path(despesa) %></td>
+        <td><%= link_to 'Destroy', despesa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Despesa', new_despesa_path %>

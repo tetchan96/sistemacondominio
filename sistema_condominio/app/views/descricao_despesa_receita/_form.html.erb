@@ -1,0 +1,52 @@
+<%= form_for(descricao_despesa_receitum) do |f| %>
+  <% if descricao_despesa_receitum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(descricao_despesa_receitum.errors.count, "error") %> prohibited this descricao_despesa_receitum from being saved:</h2>
+
+      <ul>
+      <% descricao_despesa_receitum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :natureza %>
+    <%= f.text_field :natureza %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valor_fixo %>
+    <%= f.text_field :valor_fixo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ativo %>
+    <%= f.check_box :ativo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_inclusao %>
+    <%= f.datetime_select :data_inclusao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_alteracao %>
+    <%= f.datetime_select :data_alteracao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :apartamento_id %>
+    <%= f.text_field :apartamento_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

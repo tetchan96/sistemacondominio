@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @usuario.nome %>
+</p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @usuario.login %>
+</p>
+
+<p>
+  <strong>Senha:</strong>
+  <%= @usuario.senha %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @usuario.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @usuario.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @usuario.data_alteracao %>
+</p>
+
+<p>
+  <strong>Condominio:</strong>
+  <%= @usuario.condominio %>
+</p>
+
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

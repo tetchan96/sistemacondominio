@@ -1,0 +1,47 @@
+<%= form_for(receita_recebida) do |f| %>
+  <% if receita_recebida.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(receita_recebida.errors.count, "error") %> prohibited this receita_recebida from being saved:</h2>
+
+      <ul>
+      <% receita_recebida.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :valor %>
+    <%= f.text_field :valor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data %>
+    <%= f.date_select :data %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ativo %>
+    <%= f.check_box :ativo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_inclusao %>
+    <%= f.datetime_select :data_inclusao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_alteracao %>
+    <%= f.datetime_select :data_alteracao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :receita_a_receber_id %>
+    <%= f.text_field :receita_a_receber_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

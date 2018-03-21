@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @funcionario.nome %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @funcionario.tel %>
+</p>
+
+<p>
+  <strong>Dias autorizados:</strong>
+  <%= @funcionario.dias_autorizados %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @funcionario.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @funcionario.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @funcionario.data_alteracao %>
+</p>
+
+<p>
+  <strong>Apartamento:</strong>
+  <%= @funcionario.apartamento %>
+</p>
+
+<%= link_to 'Edit', edit_funcionario_path(@funcionario) %> |
+<%= link_to 'Back', funcionarios_path %>

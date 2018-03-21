@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unidade:</strong>
+  <%= @apartamento.unidade %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @apartamento.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @apartamento.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @apartamento.data_alteracao %>
+</p>
+
+<p>
+  <strong>Condominio:</strong>
+  <%= @apartamento.condominio %>
+</p>
+
+<%= link_to 'Edit', edit_apartamento_path(@apartamento) %> |
+<%= link_to 'Back', apartamentos_path %>

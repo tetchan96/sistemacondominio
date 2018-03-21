@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Moradors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Rg</th>
+      <th>Cpf</th>
+      <th>Tel residencial</th>
+      <th>Tel celular</th>
+      <th>Tel comercial</th>
+      <th>Ramal</th>
+      <th>Email</th>
+      <th>Parentesco</th>
+      <th>Tipo</th>
+      <th>Ativo</th>
+      <th>Data inclusao</th>
+      <th>Data alteracao</th>
+      <th>Apartamento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @moradors.each do |morador| %>
+      <tr>
+        <td><%= morador.nome %></td>
+        <td><%= morador.rg %></td>
+        <td><%= morador.cpf %></td>
+        <td><%= morador.tel_residencial %></td>
+        <td><%= morador.tel_celular %></td>
+        <td><%= morador.tel_comercial %></td>
+        <td><%= morador.ramal %></td>
+        <td><%= morador.email %></td>
+        <td><%= morador.parentesco %></td>
+        <td><%= morador.tipo %></td>
+        <td><%= morador.ativo %></td>
+        <td><%= morador.data_inclusao %></td>
+        <td><%= morador.data_alteracao %></td>
+        <td><%= morador.apartamento %></td>
+        <td><%= link_to 'Show', morador %></td>
+        <td><%= link_to 'Edit', edit_morador_path(morador) %></td>
+        <td><%= link_to 'Destroy', morador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Morador', new_morador_path %>

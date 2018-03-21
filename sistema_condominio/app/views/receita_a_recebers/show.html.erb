@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @receita_a_receber.valor %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @receita_a_receber.data %>
+</p>
+
+<p>
+  <strong>Natureza:</strong>
+  <%= @receita_a_receber.natureza %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @receita_a_receber.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @receita_a_receber.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @receita_a_receber.data_alteracao %>
+</p>
+
+<p>
+  <strong>Apartamento:</strong>
+  <%= @receita_a_receber.apartamento %>
+</p>
+
+<p>
+  <strong>Descricao despesa receita:</strong>
+  <%= @receita_a_receber.descricao_despesa_receita %>
+</p>
+
+<p>
+  <strong>Morador:</strong>
+  <%= @receita_a_receber.morador %>
+</p>
+
+<%= link_to 'Edit', edit_receita_a_receber_path(@receita_a_receber) %> |
+<%= link_to 'Back', receita_a_recebers_path %>

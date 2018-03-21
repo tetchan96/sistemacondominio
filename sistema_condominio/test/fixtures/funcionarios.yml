@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  tel: MyString
+  dias_autorizados: MyString
+  ativo: false
+  data_inclusao: 2018-03-21 12:43:34
+  data_alteracao: 2018-03-21 12:43:34
+  apartamento: one
+
+two:
+  nome: MyString
+  tel: MyString
+  dias_autorizados: MyString
+  ativo: false
+  data_inclusao: 2018-03-21 12:43:34
+  data_alteracao: 2018-03-21 12:43:34
+  apartamento: two

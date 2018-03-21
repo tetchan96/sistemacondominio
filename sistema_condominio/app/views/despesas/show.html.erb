@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @despesa.data %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @despesa.valor %>
+</p>
+
+<p>
+  <strong>Natureza:</strong>
+  <%= @despesa.natureza %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @despesa.ativo %>
+</p>
+
+<p>
+  <strong>Data inclusao:</strong>
+  <%= @despesa.data_inclusao %>
+</p>
+
+<p>
+  <strong>Data alteracao:</strong>
+  <%= @despesa.data_alteracao %>
+</p>
+
+<p>
+  <strong>Descricao despesa receita:</strong>
+  <%= @despesa.descricao_despesa_receita %>
+</p>
+
+<%= link_to 'Edit', edit_despesa_path(@despesa) %> |
+<%= link_to 'Back', despesas_path %>

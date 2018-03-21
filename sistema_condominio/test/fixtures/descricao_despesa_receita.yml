@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  natureza: MyString
+  valor_fixo: 9.99
+  ativo: false
+  data_inclusao: 2018-03-21 12:43:57
+  data_alteracao: 2018-03-21 12:43:57
+  apartamento: one
+
+two:
+  descricao: MyString
+  natureza: MyString
+  valor_fixo: 9.99
+  ativo: false
+  data_inclusao: 2018-03-21 12:43:57
+  data_alteracao: 2018-03-21 12:43:57
+  apartamento: two
