@@ -43,7 +43,8 @@
 
   <div class="field">
     <%= f.label :descricao_despesa_receita_id %>
-    <%= f.text_field :descricao_despesa_receita_id %>
+    <!--<%= f.text_field :descricao_despesa_receita_id %>-->
+    <%= f.select :descricao_despesa_receita_id, @descricao_despesa_receita.collect { |descricao_despesa_receita| [descricao_despesa_receita.descricao, descricao_despesa_receita.id] } %>
   </div>
 
   <div class="actions">

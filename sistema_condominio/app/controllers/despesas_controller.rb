@@ -15,17 +15,19 @@ class DespesasController < ApplicationController
   # GET /despesas/new
   def new
     @despesa = Despesa.new
+    buscar_descricao_despesa
   end
 
   # GET /despesas/1/edit
   def edit
+    buscar_descricao_despesa
   end
 
   # POST /despesas
   # POST /despesas.json
   def create
     @despesa = Despesa.new(despesa_params)
-
+    
     respond_to do |format|
       if @despesa.save
         format.html { redirect_to @despesa, notice: 'Despesa was successfully created.' }
@@ -70,5 +72,10 @@ class DespesasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def despesa_params
       params.require(:despesa).permit(:data, :valor, :natureza, :ativo, :data_inclusao, :data_alteracao, :descricao_despesa_receita_id)
+    end
+    
+    
+    def buscar_descricao_despesa
+      @descricao_despesa_receita = DescricaoDespesaReceita.all
     end
 end

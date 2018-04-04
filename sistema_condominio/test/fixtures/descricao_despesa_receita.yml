@@ -5,15 +5,13 @@ one:
   natureza: MyString
   valor_fixo: 9.99
   ativo: false
-  data_inclusao: 2018-03-21 12:43:57
-  data_alteracao: 2018-03-21 12:43:57
-  apartamento: one
+  data_inclusao: 2018-03-21 22:50:14
+  data_alteracao: 2018-03-21 22:50:14
 
 two:
   descricao: MyString
   natureza: MyString
   valor_fixo: 9.99
   ativo: false
-  data_inclusao: 2018-03-21 12:43:57
-  data_alteracao: 2018-03-21 12:43:57
-  apartamento: two
+  data_inclusao: 2018-03-21 22:50:14
+  data_alteracao: 2018-03-21 22:50:14

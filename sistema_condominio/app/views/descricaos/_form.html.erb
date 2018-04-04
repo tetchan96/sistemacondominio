@@ -1,0 +1,22 @@
+<%= form_for(descricao) do |f| %>
+  <% if descricao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(descricao.errors.count, "error") %> prohibited this descricao from being saved:</h2>
+
+      <ul>
+      <% descricao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

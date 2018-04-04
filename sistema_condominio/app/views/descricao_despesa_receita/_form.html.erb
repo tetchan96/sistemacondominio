@@ -1,10 +1,10 @@
-<%= form_for(descricao_despesa_receitum) do |f| %>
-  <% if descricao_despesa_receitum.errors.any? %>
+<%= form_for(descricao_despesa_receita) do |f| %>
+  <% if descricao_despesa_receita.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(descricao_despesa_receitum.errors.count, "error") %> prohibited this descricao_despesa_receitum from being saved:</h2>
+      <h2><%= pluralize(descricao_despesa_receita.errors.count, "error") %> prohibited this descricao_despesa_receita from being saved:</h2>
 
       <ul>
-      <% descricao_despesa_receitum.errors.full_messages.each do |message| %>
+      <% descricao_despesa_receita.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -39,11 +39,6 @@
   <div class="field">
     <%= f.label :data_alteracao %>
     <%= f.datetime_select :data_alteracao %>
-  </div>
-
-  <div class="field">
-    <%= f.label :apartamento_id %>
-    <%= f.text_field :apartamento_id %>
   </div>
 
   <div class="actions">

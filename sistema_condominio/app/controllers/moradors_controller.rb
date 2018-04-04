@@ -69,6 +69,6 @@ class MoradorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def morador_params
-      params.require(:morador).permit(:nome, :rg, :cpf, :tel_residencial, :tel_celular, :tel_comercial, :ramal, :email, :parentesco, :tipo, :ativo, :data_inclusao, :data_alteracao, :apartamento)
+      params.require(:morador).permit(:nome, :rg, :cpf, :tel_residencial, :tel_celular, :tel_comercial, :ramal, :email, :parentesco, :tipo, :ativo, :data_inclusao, :data_alteracao, :apartamento_id)
     end
 end

@@ -12,9 +12,9 @@ one:
   parentesco: MyString
   tipo: MyString
   ativo: false
-  data_inclusao: 2018-03-21 12:43:49
-  data_alteracao: 2018-03-21 12:43:49
-  apartamento: 
+  data_inclusao: 2018-03-21 13:00:06
+  data_alteracao: 2018-03-21 13:00:06
+  apartamento: one
 
 two:
   nome: MyString
@@ -28,6 +28,6 @@ two:
   parentesco: MyString
   tipo: MyString
   ativo: false
-  data_inclusao: 2018-03-21 12:43:49
-  data_alteracao: 2018-03-21 12:43:49
-  apartamento: 
+  data_inclusao: 2018-03-21 13:00:06
+  data_alteracao: 2018-03-21 13:00:06
+  apartamento: two

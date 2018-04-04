@@ -17,7 +17,7 @@ class MoradorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create morador" do
     assert_difference('Morador.count') do
-      post moradors_url, params: { morador: { apartamento: @morador.apartamento, ativo: @morador.ativo, cpf: @morador.cpf, data_alteracao: @morador.data_alteracao, data_inclusao: @morador.data_inclusao, email: @morador.email, nome: @morador.nome, parentesco: @morador.parentesco, ramal: @morador.ramal, rg: @morador.rg, tel_celular: @morador.tel_celular, tel_comercial: @morador.tel_comercial, tel_residencial: @morador.tel_residencial, tipo: @morador.tipo } }
+      post moradors_url, params: { morador: { apartamento_id: @morador.apartamento_id, ativo: @morador.ativo, cpf: @morador.cpf, data_alteracao: @morador.data_alteracao, data_inclusao: @morador.data_inclusao, email: @morador.email, nome: @morador.nome, parentesco: @morador.parentesco, ramal: @morador.ramal, rg: @morador.rg, tel_celular: @morador.tel_celular, tel_comercial: @morador.tel_comercial, tel_residencial: @morador.tel_residencial, tipo: @morador.tipo } }
     end
 
     assert_redirected_to morador_url(Morador.last)
@@ -34,7 +34,7 @@ class MoradorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update morador" do
-    patch morador_url(@morador), params: { morador: { apartamento: @morador.apartamento, ativo: @morador.ativo, cpf: @morador.cpf, data_alteracao: @morador.data_alteracao, data_inclusao: @morador.data_inclusao, email: @morador.email, nome: @morador.nome, parentesco: @morador.parentesco, ramal: @morador.ramal, rg: @morador.rg, tel_celular: @morador.tel_celular, tel_comercial: @morador.tel_comercial, tel_residencial: @morador.tel_residencial, tipo: @morador.tipo } }
+    patch morador_url(@morador), params: { morador: { apartamento_id: @morador.apartamento_id, ativo: @morador.ativo, cpf: @morador.cpf, data_alteracao: @morador.data_alteracao, data_inclusao: @morador.data_inclusao, email: @morador.email, nome: @morador.nome, parentesco: @morador.parentesco, ramal: @morador.ramal, rg: @morador.rg, tel_celular: @morador.tel_celular, tel_comercial: @morador.tel_comercial, tel_residencial: @morador.tel_residencial, tipo: @morador.tipo } }
     assert_redirected_to morador_url(@morador)
   end
 
