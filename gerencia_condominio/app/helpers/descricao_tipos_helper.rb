@@ -1,0 +1,2 @@
+module DescricaoTiposHelper
+end

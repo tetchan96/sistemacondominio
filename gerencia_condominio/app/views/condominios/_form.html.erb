@@ -1,0 +1,27 @@
+<%= form_for(condominio) do |f| %>
+  <% if condominio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(condominio.errors.count, "error") %> prohibited this condominio from being saved:</h2>
+
+      <ul>
+      <% condominio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :saldo %>
+    <%= f.text_field :saldo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fundo_reserva %>
+    <%= f.text_field :fundo_reserva %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
