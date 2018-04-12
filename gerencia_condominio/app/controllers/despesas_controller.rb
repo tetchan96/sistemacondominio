@@ -1,6 +1,8 @@
 class DespesasController < ApplicationController
+  include DespesasHelper
   before_action :set_despesa, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: []
+  before_action :buscar_descricao_despesa, only: [:new, :edit]
 
   # GET /despesas
   # GET /despesas.json
@@ -16,18 +18,18 @@ class DespesasController < ApplicationController
   # GET /despesas/new
   def new
     @despesa = Despesa.new
-    buscar_descricao_despesa
   end
 
   # GET /despesas/1/edit
   def edit
-    buscar_descricao_despesa
   end
 
   # POST /despesas
   # POST /despesas.json
   def create
     @despesa = Despesa.new(despesa_params)
+    @despesa.ativo = true
+    @despesa.data_inclusao = DateTime.now
 
     respond_to do |format|
       if @despesa.save
@@ -43,6 +45,7 @@ class DespesasController < ApplicationController
   # PATCH/PUT /despesas/1
   # PATCH/PUT /despesas/1.json
   def update
+    @despesa.data_alteracao = DateTime.now
     respond_to do |format|
       if @despesa.update(despesa_params)
         format.html { redirect_to @despesa, notice: 'Despesa was successfully updated.' }
@@ -57,10 +60,17 @@ class DespesasController < ApplicationController
   # DELETE /despesas/1
   # DELETE /despesas/1.json
   def destroy
-    @despesa.destroy
+    #@despesa.destroy
+    @despesa.ativo = !@despesa.ativo
+    @despesa.data_alteracao = DateTime.now
     respond_to do |format|
-      format.html { redirect_to despesas_url, notice: 'Despesa was successfully destroyed.' }
-      format.json { head :no_content }
+      if @despesa.update(@despesa.attributes)
+        format.html { redirect_to despesas_url, notice: 'Despesa was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to despesas_url, notice: 'Despesa wasn\'t successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -72,9 +82,7 @@ class DespesasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def despesa_params
-      params.require(:despesa).permit(:data, :valor, :natureza, :ativo, :data_inclusao, :data_alteracao, :descricao_tipo_id)
+      params.require(:despesa).permit(:data, :valor, :natureza, :descricao_tipo_id)
     end
-    def buscar_descricao_despesa
-      @descricao_tipo = DescricaoTipo.all
-    end
+    
 end

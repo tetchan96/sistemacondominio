@@ -97,7 +97,7 @@
               <%= link_to "Perfil", current_user %>
             </li>
             <li class="menu-item-has-children active dropdown">
-              <%= link_to "Configurações", '#' %>
+              <%= link_to "Configurações", edit_user_path(current_user) %>
             </li>
             <li class="menu-item-has-children active dropdown">
               <%= link_to "Log out", sign_out_path, method: "delete" %>
@@ -193,7 +193,7 @@
                     </a>
                     <div class="user-menu dropdown-menu">
                       <%= link_to "Profile", current_user %>
-                      <%= link_to "Settings", '#' %>
+                      <%= link_to "Settings", edit_user_path(current_user) %>
                       <%= link_to "Log out", sign_out_path, method: "delete" %>
                     </div>
                   <% else %>

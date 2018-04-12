@@ -1,6 +1,8 @@
 class VeiculosController < ApplicationController
+  include VeiculosHelper
   before_action :set_veiculo, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize, except: []
+  before_action :buscar_apartamentos, only: [:new, :edit]
   # GET /veiculos
   # GET /veiculos.json
   def index
@@ -25,7 +27,8 @@ class VeiculosController < ApplicationController
   # POST /veiculos.json
   def create
     @veiculo = Veiculo.new(veiculo_params)
-
+    @veiculo.ativo = true
+    @veiculo.data_inclusao = DateTime.now
     respond_to do |format|
       if @veiculo.save
         format.html { redirect_to @veiculo, notice: 'Veiculo was successfully created.' }
@@ -40,6 +43,7 @@ class VeiculosController < ApplicationController
   # PATCH/PUT /veiculos/1
   # PATCH/PUT /veiculos/1.json
   def update
+    @veiculo.data_alteracao = DateTime.now
     respond_to do |format|
       if @veiculo.update(veiculo_params)
         format.html { redirect_to @veiculo, notice: 'Veiculo was successfully updated.' }
@@ -54,10 +58,17 @@ class VeiculosController < ApplicationController
   # DELETE /veiculos/1
   # DELETE /veiculos/1.json
   def destroy
-    @veiculo.destroy
+#    @veiculo.destroy
+    @veiculo.ativo = !@veiculo.ativo
+    @veiculo.data_alteracao = DateTime.now
     respond_to do |format|
-      format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully destroyed.' }
-      format.json { head :no_content }
+      if @veiculo.update(@veiculo.attributes)
+        format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to veiculos_url, notice: 'Veiculo wasn\'t successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -69,6 +80,6 @@ class VeiculosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def veiculo_params
-      params.require(:veiculo).permit(:marca, :modelo, :cor, :placa, :ativo, :data_inclusao, :data_alteracao, :apartamento_id)
+      params.require(:veiculo).permit(:marca, :modelo, :cor, :placa, :apartamento_id)
     end
 end

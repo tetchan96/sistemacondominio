@@ -1,6 +1,7 @@
 class ApartamentosController < ApplicationController
+  include ApartamentosHelper
   before_action :set_apartamento, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize, except: []
   # GET /apartamentos
   # GET /apartamentos.json
   def index
@@ -14,17 +15,21 @@ class ApartamentosController < ApplicationController
 
   # GET /apartamentos/new
   def new
+    buscar_condominios
     @apartamento = Apartamento.new
   end
 
   # GET /apartamentos/1/edit
   def edit
+    buscar_condominios
   end
 
   # POST /apartamentos
   # POST /apartamentos.json
   def create
     @apartamento = Apartamento.new(apartamento_params)
+    @apartamento.ativo = true
+    @apartamento.data_inclusao = DateTime.now
 
     respond_to do |format|
       if @apartamento.save
@@ -40,6 +45,7 @@ class ApartamentosController < ApplicationController
   # PATCH/PUT /apartamentos/1
   # PATCH/PUT /apartamentos/1.json
   def update
+    @apartamento.data_alteracao = DateTime.now
     respond_to do |format|
       if @apartamento.update(apartamento_params)
         format.html { redirect_to @apartamento, notice: 'Apartamento was successfully updated.' }
@@ -54,10 +60,17 @@ class ApartamentosController < ApplicationController
   # DELETE /apartamentos/1
   # DELETE /apartamentos/1.json
   def destroy
-    @apartamento.destroy
+    #@apartamento.destroy
+    @apartamento.ativo = !@apartamento.ativo
+    @apartamento.data_alteracao = DateTime.now
     respond_to do |format|
-      format.html { redirect_to apartamentos_url, notice: 'Apartamento was successfully destroyed.' }
-      format.json { head :no_content }
+      if @apartamento.update(@apartamento.attributes)
+        format.html { redirect_to apartamentos_url, notice: 'Apartamento was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to apartamentos_url, notice: 'Apartamento wasn\'t successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -69,6 +82,6 @@ class ApartamentosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartamento_params
-      params.require(:apartamento).permit(:unidade, :ativo, :data_inclusao, :data_alteracao, :condominio_id)
+      params.require(:apartamento).permit(:unidade, :condominio_id)
     end
 end

@@ -1,6 +1,8 @@
 class FuncionariosController < ApplicationController
+  include FuncionariosHelper
   before_action :set_funcionario, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize, except: []
+  before_action :buscar_apartamentos, only: [:new, :edit]
   # GET /funcionarios
   # GET /funcionarios.json
   def index
@@ -25,6 +27,8 @@ class FuncionariosController < ApplicationController
   # POST /funcionarios.json
   def create
     @funcionario = Funcionario.new(funcionario_params)
+    @funcionario.ativo = true
+    @funcionario.data_inclusao = DateTime.now
 
     respond_to do |format|
       if @funcionario.save
@@ -40,6 +44,7 @@ class FuncionariosController < ApplicationController
   # PATCH/PUT /funcionarios/1
   # PATCH/PUT /funcionarios/1.json
   def update
+    @funcionario.data_alteracao = DateTime.now
     respond_to do |format|
       if @funcionario.update(funcionario_params)
         format.html { redirect_to @funcionario, notice: 'Funcionario was successfully updated.' }
@@ -54,10 +59,17 @@ class FuncionariosController < ApplicationController
   # DELETE /funcionarios/1
   # DELETE /funcionarios/1.json
   def destroy
-    @funcionario.destroy
+    #@funcionario.destroy
+    @funcionario.ativo = !@funcionario.ativo
+    @funcionario.data_alteracao = DateTime.now
     respond_to do |format|
-      format.html { redirect_to funcionarios_url, notice: 'Funcionario was successfully destroyed.' }
-      format.json { head :no_content }
+      if @funcionario.update(@funcionario.attributes)
+        format.html { redirect_to funcionarios_url, notice: 'Funcionario was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to funcionarios_url, notice: 'Funcionario wasn\'t successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -69,6 +81,6 @@ class FuncionariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def funcionario_params
-      params.require(:funcionario).permit(:nome, :tel, :dias_autorizados, :ativo, :data_inclusao, :data_alteracao, :apartamento_id)
+      params.require(:funcionario).permit(:nome, :tel, :dias_autorizados, :apartamento_id)
     end
 end

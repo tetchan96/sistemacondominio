@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411002553) do
+ActiveRecord::Schema.define(version: 20180411231436) do
 
   create_table "apartamentos", force: :cascade do |t|
     t.string   "unidade"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180411002553) do
     t.decimal  "fundo_reserva"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "nome"
   end
 
   create_table "descricao_tipos", force: :cascade do |t|

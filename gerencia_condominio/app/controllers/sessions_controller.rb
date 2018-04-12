@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   before_action :block_access, except: [:destroy]
-  
-  
+
   def create  
     @user = User.find_by(login: params[:session][:login].downcase)
     if @user && @user.authenticate(params[:session][:password])

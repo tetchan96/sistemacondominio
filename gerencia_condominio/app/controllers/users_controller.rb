@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+  include UsersHelper
   before_action :correct_user?, only: [:edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   

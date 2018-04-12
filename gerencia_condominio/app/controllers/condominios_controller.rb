@@ -1,6 +1,7 @@
 class CondominiosController < ApplicationController
+  include CondominiosHelper
   before_action :set_condominio, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize, except: []
   # GET /condominios
   # GET /condominios.json
   def index
@@ -54,10 +55,15 @@ class CondominiosController < ApplicationController
   # DELETE /condominios/1
   # DELETE /condominios/1.json
   def destroy
-    @condominio.destroy
+    #@condominio.destroy
     respond_to do |format|
-      format.html { redirect_to condominios_url, notice: 'Condominio was successfully destroyed.' }
-      format.json { head :no_content }
+      if @condominio.update(@condominio.attributes)
+        format.html { redirect_to condominios_url, notice: 'Condominio was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+       format.html { redirect_to condominios_url, notice: 'Condominio wasn\'t successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -69,6 +75,6 @@ class CondominiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def condominio_params
-      params.require(:condominio).permit(:saldo, :fundo_reserva)
+      params.require(:condominio).permit(:nome, :saldo, :fundo_reserva)
     end
 end

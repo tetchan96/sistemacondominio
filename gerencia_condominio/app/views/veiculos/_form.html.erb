@@ -11,47 +11,119 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :marca %>
-    <%= f.text_field :marca %>
-  </div>
 
-  <div class="field">
-    <%= f.label :modelo %>
-    <%= f.text_field :modelo %>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-4">
+      <%= f.label :marca, class: "form-control-label", for: :marca %>
+    </div>
+    <div class="col col-md-8">
+      <%= f.text_field :marca, class:"form-control", placeholder: :marca %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :cor %>
-    <%= f.text_field :cor %>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-4">
+      <%= f.label :modelo, class: "form-control-label", for: :modelo %>
+    </div>
+    <div class="col col-md-8">
+      <%= f.text_field :modelo, class:"form-control", placeholder: :modelo %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :placa %>
-    <%= f.text_field :placa %>
-  </div>
 
-  <div class="field">
-    <%= f.label :ativo %>
-    <%= f.check_box :ativo %>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-4">
+      <%= f.label :cor, class: "form-control-label", for: :cor %>
+    </div>
+    <div class="col col-md-8">
+      <%= f.text_field :cor, class:"form-control", placeholder: :cor %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :data_inclusao %>
-    <%= f.datetime_select :data_inclusao %>
-  </div>
 
-  <div class="field">
-    <%= f.label :data_alteracao %>
-    <%= f.datetime_select :data_alteracao %>
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-4">
+      <%= f.label :placa, class: "form-control-label", for: :placa %>
+    </div>
+    <div class="col col-md-8">
+      <%= f.text_field :placa, class:"form-control", placeholder: :placa %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :apartamento_id %>
-    <%= f.text_field :apartamento_id %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit %>
+<div class="col col-md-6 hide">
+  <div class="form-group">
+    <div class="col col-md-4">
+      <%= f.label :ativo, class: "form-control-label", for: :ativo %>
+    </div>
+    <div class="col col-md-8">
+      <%= f.check_box :ativo, class:"form-control", placeholder: :ativo %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
   </div>
+</div>
+
+
+<div class="col col-md-6 hide">
+  <div class="form-group">
+    <div class="col col-md-4">
+      <%= f.label :data_inclusao, class: "form-control-label", for: :data_inclusao %>
+    </div>
+    <div class="col col-md-8">
+      <%= f.date_select :data_inclusao, class:"form-control", placeholder: :data_inclusao %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
+  </div>
+</div>
+
+<div class="col col-md-6 hide">
+  <div class="form-group">
+    <div class="col col-md-4">
+      <%= f.label :data_alteracao, class: "form-control-label", for: :data_alteracao %>
+    </div>
+    <div class="col col-md-8">
+      <%= f.date_select :data_alteracao, class:"form-control", placeholder: :data_alteracao %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
+  </div>
+</div>
+
+<div class="col col-md-6">
+  <div class="form-group">
+    <div class="col col-md-6">
+      <%= f.label :apartamento_id, class: "form-control-label", for: :apartamento_id %>
+    </div>
+    <div class="col col-md-6">
+      <%= f.select :apartamento_id, @apartamento.collect { |apartamento| [apartamento.unidade, apartamento.id] }, {}, { :class => 'form-control', :tabindex => '-1' }  %>
+      <!--<small class="form-text text-muted">This is a help text</small></div>-->
+    </div>
+  </div>
+</div>
+
+  
+<div class="form-group">
+  <div class="col col-md-12">
+    <div class="row">
+      <%= f.submit class: "btn btn-primary btn-sm" %>
+      <!--<button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-dot-circle-o"></i> Submit
+      </button>-->
+      <button type="reset" class="btn btn-danger btn-sm">
+        <i class="fa fa-ban"></i> Reset
+      </button>
+    </div>
+  </div>
+</div>
 <% end %>

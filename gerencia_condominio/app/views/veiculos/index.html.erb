@@ -56,7 +56,7 @@
         <td><%= veiculo.ativo %></td>
         <td><%= veiculo.data_inclusao %></td>
         <td><%= veiculo.data_alteracao %></td>
-        <td><%= veiculo.apartamento %></td>
+        <td><%= veiculo.apartamento.unidade %></td>
         <td><%= link_to 'Show', veiculo %></td>
         <td><%= link_to 'Edit', edit_veiculo_path(veiculo) %></td>
         <td><%= link_to 'Destroy', veiculo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
