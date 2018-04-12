@@ -1,4 +1,5 @@
 class ApartamentosController < ApplicationController
+  ApartamentosHelper
   before_action :set_apartamento, only: [:show, :edit, :update, :destroy]
 
   # GET /apartamentos
