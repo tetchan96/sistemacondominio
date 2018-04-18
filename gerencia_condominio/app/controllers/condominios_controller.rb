@@ -11,6 +11,8 @@ class CondominiosController < ApplicationController
   # GET /condominios/1
   # GET /condominios/1.json
   def show
+    destroy_current_apartamento
+    consultarApartamentosPorCondominio(current_condominio.id)
   end
 
   # GET /condominios/new

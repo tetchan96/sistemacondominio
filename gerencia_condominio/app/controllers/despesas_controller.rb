@@ -1,8 +1,8 @@
 class DespesasController < ApplicationController
   include DespesasHelper
-  before_action :set_despesa, only: [:show, :edit, :update, :destroy]
+  before_action :set_despesa, only: [:show, :edit, :destroy]
   before_action :authorize, except: []
-  before_action :buscar_descricao_despesa, only: [:new, :edit]
+  before_action :buscar_descricao_despesa, only: [:new, :edit, :update, :create]
 
   # GET /despesas
   # GET /despesas.json

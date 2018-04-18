@@ -7,7 +7,7 @@ module SessionsHelper
   end
   def block_access
     if current_user.present?
-      redirect_to users_path
+      redirect_to current_condominio
     end
   end
   
@@ -19,4 +19,27 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+  
+  def set_current_condominio condominio
+    session[:condominio_id] = condominio.id
+  end
+  def current_condominio
+    @current_condominio ||= Condominio.find_by(id: session[:condominio_id])
+  end
+  def destroy_current_condominio
+    destroy_current_apartamento
+    session.delete(:condominio_id)
+    @current_condominio = nil
+  end
+  def set_current_apartamento apartamento
+    session[:apartamento_id] = apartamento.id
+  end
+  def current_apartamento
+    @current_apartamento ||= Apartamento.find_by(id: session[:apartamento_id])
+  end
+  def destroy_current_apartamento
+    session.delete(:apartamentoo_id)
+    @current_condominio = nil
+  end
+  
 end

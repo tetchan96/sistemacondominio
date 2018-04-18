@@ -31,39 +31,7 @@
             <strong class="card-title">Veículos</strong>
           </div>
           <div class="card-body">
-            <table id="bootstrap-data-table" class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>Cor</th>
-      <th>Placa</th>
-      <th>Ativo</th>
-      <th>Data inclusao</th>
-      <th>Data alteracao</th>
-      <th>Apartamento</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @veiculos.each do |veiculo| %>
-      <tr>
-        <td><%= veiculo.marca %></td>
-        <td><%= veiculo.modelo %></td>
-        <td><%= veiculo.cor %></td>
-        <td><%= veiculo.placa %></td>
-        <td><%= veiculo.ativo %></td>
-        <td><%= veiculo.data_inclusao %></td>
-        <td><%= veiculo.data_alteracao %></td>
-        <td><%= veiculo.apartamento.unidade %></td>
-        <td><%= link_to 'Show', veiculo %></td>
-        <td><%= link_to 'Edit', edit_veiculo_path(veiculo) %></td>
-        <td><%= link_to 'Destroy', veiculo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <%= render 'list', veiculos: @veiculos %> 
             <%= link_to 'Adicionar Veículo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
           </div>
         </div>

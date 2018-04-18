@@ -50,13 +50,47 @@
 
 <p>
   <strong>Condominio:</strong>
-  <%= @apartamento.condominio %>
+  <%= @apartamento.condominio.nome %>
 </p>
+</div>
+</div>
+</div>
+</div>
+        
+        <div class="form-group">
+          <%= link_to 'Editar', edit_apartamento_path(@apartamento), class: "btn btn-outline-primary", role:"button" %>
+          <%= link_to 'Voltar', @apartamento.condominio, class: "btn btn-outline-primary", role:"button" %>
         </div>
-        </div>
-        </div>
-        <%= link_to 'Editar', edit_apartamento_path(@apartamento), class: "btn btn-outline-primary", role:"button" %>
-        <%= link_to 'Voltar', apartamentos_path, class: "btn btn-outline-primary", role:"button" %>
+        
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Moradores</strong>
+          </div>
+          <div class="card-body">
+            <%= render 'moradors/list', moradors: @moradors %>
+            <%= link_to 'Adicionar Morador', new_morador_path, class: "btn btn-outline-primary", role:"button" %>
+          </div>
+        </div>  
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Veiculos</strong>
+          </div>
+          <div class="card-body">
+            <%= render 'veiculos/list', veiculos: @veiculos %>
+            <%= link_to 'Adicionar Veiculo', new_veiculo_path, class: "btn btn-outline-primary", role:"button" %>
+          </div>
+        </div> 
+        <div class="card">
+          <div class="card-header">
+            <strong class="card-title">Funcionarios</strong>
+          </div>
+          <div class="card-body">
+            <%= render 'funcionarios/list', funcionarios: @funcionarios %>
+            <%= link_to 'Adicionar Veiculo', new_funcionario_path, class: "btn btn-outline-primary", role:"button" %>
+          </div>
+        </div> 
+        
+        
       </div>
     </div>
   </div><!-- .animated -->

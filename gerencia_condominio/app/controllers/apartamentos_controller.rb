@@ -2,6 +2,7 @@ class ApartamentosController < ApplicationController
   include ApartamentosHelper
   before_action :set_apartamento, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: []
+  before_action :buscar_condominios, only: [:edit, :update, :new, :create]
   # GET /apartamentos
   # GET /apartamentos.json
   def index
@@ -11,17 +12,20 @@ class ApartamentosController < ApplicationController
   # GET /apartamentos/1
   # GET /apartamentos/1.json
   def show
+    set_current_apartamento(@apartamento)
+    consultarVeiculosPorApartamento(@apartamento.id)
+    consultarMoradoresPorApartamento(@apartamento.id)
+    consultarFuncionariosPorApartamento(@apartamento.id)
   end
 
   # GET /apartamentos/new
   def new
-    buscar_condominios
     @apartamento = Apartamento.new
+    @apartamento.condominio = current_condominio
   end
 
   # GET /apartamentos/1/edit
   def edit
-    buscar_condominios
   end
 
   # POST /apartamentos
@@ -65,10 +69,10 @@ class ApartamentosController < ApplicationController
     @apartamento.data_alteracao = DateTime.now
     respond_to do |format|
       if @apartamento.update(@apartamento.attributes)
-        format.html { redirect_to apartamentos_url, notice: 'Apartamento was successfully destroyed.' }
+        format.html { redirect_to @apartamento.condominio, notice: 'Apartamento was successfully destroyed.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to apartamentos_url, notice: 'Apartamento wasn\'t successfully destroyed.' }
+        format.html { redirect_to @apartamento.condominio, notice: 'Apartamento wasn\'t successfully destroyed.' }
         format.json { head :no_content }
       end
     end

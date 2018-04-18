@@ -40,7 +40,7 @@
       <%= f.label :natureza, class: "form-control-label", for: :natureza %>
     </div>
     <div class="col col-md-8">
-      <%= f.text_field :natureza, class:"form-control", placeholder: :natureza %>
+      <%= f.select :natureza, [['Fundo de reserva', 'fundo_reserva'], ['Taxa condominio', 'taxa_condominio']], {}, { :class => 'form-control', :tabindex => '-1'} %>
       <!--<small class="form-text text-muted">This is a help text</small></div>-->
     </div>
   </div>

@@ -3,7 +3,7 @@ class ReceitaARecebersController < ApplicationController
   before_action :set_receita_a_receber, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: []
   before_action :buscar_descricao_despesa, only: [:new, :edit]
-  before_action :buscar_apartamento, only: [:new, :edit]
+  before_action :buscar_apartamentos, only: [:new, :edit]
   before_action :buscar_morador, only: [:new, :edit]
   # GET /receita_a_recebers
   # GET /receita_a_recebers.json
@@ -19,6 +19,7 @@ class ReceitaARecebersController < ApplicationController
   # GET /receita_a_recebers/new
   def new
     @receita_a_receber = ReceitaAReceber.new
+    @receita_a_receber.apartamento = current_apartamento
   end
 
   # GET /receita_a_recebers/1/edit

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'balanco/new'
+
   get 'users/new'
 
   get 'sessions/new'
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :condominios
   resources :users
+  resources :balanco
+  
   
   get    'sign_in'   => 'sessions#new'
   post   'sign_in'   => 'sessions#create'

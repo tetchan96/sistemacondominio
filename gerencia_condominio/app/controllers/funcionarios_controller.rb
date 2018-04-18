@@ -17,6 +17,7 @@ class FuncionariosController < ApplicationController
   # GET /funcionarios/new
   def new
     @funcionario = Funcionario.new
+    @funcionario.apartamento = current_apartamento
   end
 
   # GET /funcionarios/1/edit
@@ -64,10 +65,10 @@ class FuncionariosController < ApplicationController
     @funcionario.data_alteracao = DateTime.now
     respond_to do |format|
       if @funcionario.update(@funcionario.attributes)
-        format.html { redirect_to funcionarios_url, notice: 'Funcionario was successfully destroyed.' }
+        format.html { redirect_to @funcionario.apartamento, notice: 'Funcionario was successfully destroyed.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to funcionarios_url, notice: 'Funcionario wasn\'t successfully destroyed.' }
+        format.html { redirect_to @funcionario.apartamento, notice: 'Funcionario wasn\'t successfully destroyed.' }
         format.json { head :no_content }
       end
     end

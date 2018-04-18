@@ -17,6 +17,7 @@ class MoradorsController < ApplicationController
   # GET /moradors/new
   def new
     @morador = Morador.new
+    @morador.apartamento = current_apartamento
   end
 
   # GET /moradors/1/edit
@@ -63,10 +64,10 @@ class MoradorsController < ApplicationController
     @morador.data_alteracao = DateTime.now
     respond_to do |format|
       if @morador.update(@morador.attributes)
-        format.html { redirect_to moradors_url, notice: 'Morador was successfully destroyed.' }
+        format.html { redirect_to @morador.apartamento, notice: 'Morador was successfully destroyed.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to moradors_url, notice: 'Morador wasn\'t successfully destroyed.' }
+        format.html { redirect_to @morador.apartamento, notice: 'Morador wasn\'t successfully destroyed.' }
         format.json { head :no_content }
       end
     end

@@ -17,6 +17,7 @@ class VeiculosController < ApplicationController
   # GET /veiculos/new
   def new
     @veiculo = Veiculo.new
+    @veiculo.apartamento = current_apartamento
   end
 
   # GET /veiculos/1/edit
@@ -63,10 +64,10 @@ class VeiculosController < ApplicationController
     @veiculo.data_alteracao = DateTime.now
     respond_to do |format|
       if @veiculo.update(@veiculo.attributes)
-        format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully destroyed.' }
+        format.html { redirect_to @veiculo.apartamento, notice: 'Veiculo was successfully destroyed.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to veiculos_url, notice: 'Veiculo wasn\'t successfully destroyed.' }
+        format.html { redirect_to @veiculo.apartamento, notice: 'Veiculo wasn\'t successfully destroyed.' }
         format.json { head :no_content }
       end
     end
